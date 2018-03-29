@@ -1,0 +1,436 @@
+10:37:29.408 [ INFO]-[           main] c.d.g.c.SystemConfig           : 
+-****************************************** System Config  ******************************************-
+  --Key: productId                          		Value: 4444
+  --Key: wxPort                             		Value: 40000
+  --Key: gamePort                           		Value: 9998
+  --Key: resPort                            		Value: 30001
+  --Key: webPort                            		Value: 38075
+  --Key: localPort                          		Value: 0
+  --Key: extPort                            		Value: 0
+  --Key: remoteHost                         		Value: NULL
+  --Key: remotePort                         		Value: 0
+  --Key: agentURL                           		Value: NULL
+  --Key: agentLoginURL                      		Value: NULL
+  --Key: shoppingCenterURL                  		Value: http://192.168.7.6:9999/shoppingCenter
+  --Key: serverId                           		Value: server-singlon
+  --Key: serverURL                          		Value: 192.168.7.6
+  --Key: langPath                           		Value: lang/lang_zh.txt
+  --Key: pyjRecordPath                      		Value: ./fileData/pyjrecord/
+  --Key: singlon                            		Value: true
+  --Key: checkAgent                         		Value: false
+  --Key: logLevel                           		Value: ALL
+  --Key: logFile                            		Value: ./logs/dszy.log
+  --Key: logConsoleDisable                  		Value: 0
+  --Key: consoleTest                        		Value: false
+  --Key: encryptMessage                     		Value: false
+  --Key: zookeeperIp                        		Value: 192.168.8.25
+  --Key: activityURL                        		Value: http://192.168.7.6:20001/
+  --Key: activityWebPort                    		Value: 0
+  --Key: workerURL                          		Value: /game/guangdong_region/dsqp/run.sh worker
+  --Key: gameType                           		Value: 10020
+  --Key: base                               		Value: 0
+  --Key: simpleProxy                        		Value: false
+  --Key: appid                              		Value: wxfd0e620467a13b07
+  --Key: userIdLength                       		Value: 8
+  --Key: userIdPrefix                       		Value: 1000000000
+  --Key: customArg                          		Value: NULL
+  --Key: oldClientMap                       		Value: NULL
+  --Key: config                             		Value: NULL
+  --Key: yamlFilePath                       		Value: systemConfig.yml
+  --Key: yamlFilePathRegEx                  		Value: systemConfigRegEx.yml
+  --Key: runEnvironment                     		Value: development
+  --Key: md5val                             		Value: 75DEAD9375474311803CE4876B00727F
+------------------------------------- dataBaseConfig -------------------------------------
+  --Key: address                            		Value: 192.168.7.6
+  --Key: port                               		Value: 3306
+  --Key: userName                           		Value: dbuser_root
+  --Key: dbMaxconn                          		Value: 10
+  --Key: dbFallow                           		Value: 5
+  --Key: charSet                            		Value: utf-8
+  --Key: dbNames_dbName                     		Value: guangdong_region_php_dev
+  --Key: dbNames_logDbName                  		Value: guangdong_region_php_log_dev
+------------------------------------- gameConfig -------------------------------------
+  --Key: testModel                          		Value: true
+  --Key: needZiplog                         		Value: false
+  --Key: ddzSupotPublic                     		Value: false
+  --Key: ddzAwaysGrab                       		Value: false
+  --Key: mjTestCard                         		Value: true
+  --Key: inviteRoomMaxId                    		Value: 9999
+  --Key: gameDesktopClassNameMap_10090      		Value: com.dszy.game.gamelogic.majong.lianjiang.LianJiangFSM
+  --Key: gameDesktopClassNameMap_10172      		Value: com.dszy.game.gamelogic.majong.guangdongjh.GuangDongJhFSM
+  --Key: gameDesktopClassNameMap_10095      		Value: com.dszy.game.gamelogic.majong.zhaoqing.ZhaoQingFSM
+  --Key: gameDesktopClassNameMap_10097      		Value: com.dszy.game.gamelogic.majong.yunfu.YunFuFSM
+  --Key: gameDesktopClassNameMap_10130      		Value: com.dszy.game.gamelogic.majong.gaozhoumaima.GaoZhouMaiMaFSM
+  --Key: gameDesktopClassNameMap_10096      		Value: com.dszy.game.gamelogic.majong.huaiji.HuaiJiFSM
+  --Key: gameDesktopClassNameMap_10118      		Value: com.dszy.game.gamelogic.majong.chaozhou.ChaoZhouFSM
+  --Key: gameDesktopClassNameMap_10217      		Value: com.dszy.game.gamelogic.majong.guangdongbaizhang.GuangDongBaiZhangFSM
+  --Key: gameDesktopClassNameMap_10117      		Value: com.dszy.game.gamelogic.majong.shanwei.ShanWeiFSM
+  --Key: gameDesktopClassNameMap_10218      		Value: com.dszy.game.gamelogic.majong.hongzhong.HongZhongFSM
+  --Key: gameDesktopClassNameMap_10110      		Value: com.dszy.game.gamelogic.majong.zhongshan.ZhongShanGame
+  --Key: gameDesktopClassNameMap_10099      		Value: com.dszy.game.gamelogic.majong.yunfu.YunFuFSM
+  --Key: gameDesktopClassNameMap_10098      		Value: com.dszy.game.gamelogic.majong.yunfu.YunFuFSM
+  --Key: gameDesktopClassNameMap_10296      		Value: com.dszy.game.gamelogic.majong.gdzuopai.GdZuopaiFSM
+  --Key: gameDesktopClassNameMap_10136      		Value: com.dszy.game.gamelogic.majong.shantou.ShanTouFSM
+  --Key: gameDesktopClassNameMap_10213      		Value: com.dszy.game.gamelogic.majong.gdzuopai.GdZuopaiFSM
+  --Key: gameDesktopClassNameMap_10135      		Value: com.dszy.game.gamelogic.majong.meizhou.MeiZhouFSM
+  --Key: gameDesktopClassNameMap_10116      		Value: com.dszy.game.gamelogic.majong.zhuh.ZhuhFSM
+  --Key: gameDesktopClassNameMap_10214      		Value: com.dszy.game.gamelogic.majong.jieyang.JieYangFSM
+  --Key: gameDesktopClassNameMap_20002      		Value: com.dszy.game.gamelogic.ddz2r.DDZDesktop
+  --Key: gameDesktopClassNameMap_20001      		Value: com.dszy.game.gamelogic.ddz.DDZDesktop
+  --Key: gameDesktopClassNameMap_10086      		Value: com.dszy.game.gamelogic.majong.qy.QYFSM
+  --Key: gameDesktopClassNameMap_20009      		Value: com.dszy.game.gamelogic.ddzcommon.DDZCommonDesk
+  --Key: gameDesktopClassNameMap_10107      		Value: com.dszy.game.gamelogic.majong.jiangmen.JiangmenFSM
+  --Key: gameDesktopClassNameMap_10129      		Value: com.dszy.game.gamelogic.majong.maoming.MaomingFSM
+  --Key: gameDesktopClassNameMap_10128      		Value: com.dszy.game.gamelogic.majong.meizhou.MeiZhouFSM
+  --Key: gameDesktopClassNameMap_10106      		Value: com.dszy.game.gamelogic.majong.heyuan.HeYuanFSM
+  --Key: gameDesktopClassNameMap_10109      		Value: com.dszy.game.gamelogic.majong.kaiping.KaipingFSM
+  --Key: gameDesktopClassNameMap_10108      		Value: com.dszy.game.gamelogic.majong.jiangmengangganghu.JiangMenGangGangHuFSM
+  --Key: gameDesktopClassNameMap_10087      		Value: com.dszy.game.gamelogic.majong.Yingd.YingDFSM
+  --Key: gameDesktopClassNameMap_10101      		Value: com.dszy.game.gamelogic.majong.yangjiang.YangjiangFSM
+  --Key: gameDesktopClassNameMap_10089      		Value: com.dszy.game.gamelogic.majong.zhanjiang.ZhanJiangFSM
+  --Key: gameDesktopClassNameMap_10100      		Value: com.dszy.game.gamelogic.majong.yangjiangdf.YangjiangdfFSM
+  --Key: gameDesktopClassNameMap_10103      		Value: com.dszy.game.gamelogic.majong.shaoguannormal.ShaoGuanNormalFSM
+  --Key: gameDesktopClassNameMap_10102      		Value: com.dszy.game.gamelogic.majong.shaoguanzp.ShaoGuanZpFSM
+  --Key: gameDesktopClassNameMap_10105      		Value: com.dszy.game.gamelogic.majong.huizhou.HuiZhouGame
+  --Key: gameDesktopClassNameMap_10126      		Value: com.dszy.game.gamelogic.majong.gaozhou.GaoZhouFSM
+------------------------------------- clubDataBaseConfig -------------------------------------
+  --Key: address                            		Value: 192.168.7.105
+  --Key: port                               		Value: 3306
+  --Key: userName                           		Value: root
+  --Key: dbMaxconn                          		Value: 2
+  --Key: dbFallow                           		Value: 1
+  --Key: charSet                            		Value: utf-8
+  --Key: dbNames_clubDictDbName             		Value: club_dict
+  --Key: dbNames_clubDbName                 		Value: club
+  --Key: dbNames_clubLogDbName              		Value: club_log
+------------------------------------- dictDataBaseConfig -------------------------------------
+  --Key: address                            		Value: 192.168.7.6
+  --Key: port                               		Value: 3306
+  --Key: userName                           		Value: dbuser_root
+  --Key: dbMaxconn                          		Value: 10
+  --Key: dbFallow                           		Value: 5
+  --Key: charSet                            		Value: utf-8
+  --Key: dbNames_mpDbName                   		Value: dsqp_mp
+  --Key: dbNames_dictDbName                 		Value: dsqp_dict
+------------------------------------- resConfig -------------------------------------
+  --Key: imageURL                           		Value: http://192.168.7.6:30001/images/
+  --Key: headImgURL                         		Value: http://192.168.7.6:30001/headimg/
+  --Key: gameZipURL                         		Value: http://192.168.7.6:30001/gameZip/
+  --Key: recordURL                          		Value: http://192.168.7.6:30001/pyjrecord/
+  --Key: mergeAndroidURL                    		Value: NULL
+  --Key: mergeIOSURL                        		Value: NULL
+  --Key: mergeDesc                          		Value: NULL
+------------------------------------- cardControlConfig -------------------------------------
+  --Key: types_sg                           		Value: 2.0
+  --Key: types_dz                           		Value: 1.0
+  --Key: types_sz                           		Value: 1.5
+  --Key: types_kz                           		Value: 1.5
+  --Key: probability_gt4                    		Value: 0.0
+  --Key: probability_lt1.5                  		Value: 30.0
+  --Key: probability_gt6                    		Value: 20.0
+  --Key: probability_gt5                    		Value: 10.0
+  --Key: n                                  		Value: 0
+------------------------------------- logDataBaseConfig -------------------------------------
+  --Key: address                            		Value: 192.168.7.6
+  --Key: port                               		Value: 3306
+  --Key: userName                           		Value: dbuser_root
+  --Key: dbMaxconn                          		Value: 2
+  --Key: dbFallow                           		Value: 1
+  --Key: charSet                            		Value: utf-8
+  --Key: dbNames_logDbName                  		Value: guangdong_region_php_log_dev
+------------------------------------- cacheConfig -------------------------------------
+  --Key: url                                		Value: 127.0.0.1
+  --Key: port                               		Value: 6379
+  --Key: database                           		Value: 1
+  --Key: database2                          		Value: 2
+  --Key: ttl_CashLimitData                  		Value: 1.0
+  --Key: ttl_UUserInfo                      		Value: 1.0
+  --Key: ttl_private_rooms                  		Value: 1.0
+  --Key: ttl_UQuest                         		Value: 1.0
+  --Key: ttl_UUserExt                       		Value: 1.0
+  --Key: ttl_UUserRecord                    		Value: 1.0
+  --Key: ttl_UUserPoint                     		Value: 1.0
+------------------------------------- bullConfig -------------------------------------
+  --Key: roundExp                           		Value: 10
+  --Key: dealerExpEx                        		Value: 10
+  --Key: playerExpEx                        		Value: 5
+  --Key: lossPercentMap_bull2               		Value: 1
+  --Key: lossPercentMap_noBull              		Value: 1
+  --Key: lossPercentMap_bull1               		Value: 1
+  --Key: lossPercentMap_bomb                		Value: 3
+  --Key: lossPercentMap_bullBull            		Value: 3
+  --Key: lossPercentMap_fiveFlowerBull      		Value: 3
+  --Key: lossPercentMap_fiveLittleBull      		Value: 3
+  --Key: lossPercentMap_bull6               		Value: 1
+  --Key: lossPercentMap_bull5               		Value: 1
+  --Key: lossPercentMap_bull4               		Value: 1
+  --Key: lossPercentMap_bull3               		Value: 1
+  --Key: lossPercentMap_bull9               		Value: 2
+  --Key: lossPercentMap_bull8               		Value: 2
+  --Key: lossPercentMap_bull7               		Value: 2
+  --Key: enabledRobot                       		Value: false
+------------------------------------- userConfig -------------------------------------
+  --Key: version                            		Value: 1.0.0
+  --Key: checkVersionList                   		Value: all
+  --Key: checkFlag                          		Value: true
+  --Key: rechargeComfirmSwitch              		Value: false
+  --Key: newBeeCash                         		Value: 0
+  --Key: defaultCity                        		Value: 0
+  --Key: playLostCashLimit                  		Value: 500000
+  --Key: playWinCashLimit                   		Value: 500000
+  --Key: roomLostCashLimit                  		Value: 10000000
+  --Key: roomWinCashLimit                   		Value: 10000000
+  --Key: dayLostCashLimit                   		Value: 10000000
+  --Key: dayWinCashLimit                    		Value: 10000000
+  --Key: cashLimitOpen                      		Value: true
+  --Key: smsTimeout                         		Value: 300
+  --Key: testBilling                        		Value: false
+  --Key: privateRoomDiamond                 		Value: 12
+-***************************************** End System Config  *****************************************-
+
+10:37:29.457 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : start logger ok
+10:37:30.729 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.6:3306/guangdong_region_php_dev?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:37:30.759 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.6:3306/guangdong_region_php_log_dev?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:37:30.838 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.6:3306/dsqp_dict?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:37:30.860 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.105:3306/club?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:37:30.879 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.105:3306/club_dict?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:37:30.902 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.105:3306/club_log?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:37:30.988 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.6:3306/dsqp_mp?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:37:30.995 [ INFO]-[           main] c.d.g.c.StoreService           :  * connect cache 127.0.0.1 db 1 db2 2
+10:37:31.058 [ INFO]-[           main] c.d.g.c.StoreService           :  * connect cache successful
+10:37:34.432 [ WARN]-[pool-9-thread-1] c.d.g.s.HttpSender             : post(http://192.168.7.6:9999/shoppingCenter) {msg={"prI":4444,"paW":1,"snId":0,"recUserId":0}, code=90010}
+10:37:35.191 [ INFO]-[           main] c.d.g.g.c.r.RoomFeeConfigHelper : load PyjConfig success!
+10:37:35.541 [ WARN]-[pool-9-thread-1] c.d.g.s.HttpSender             : got(http://192.168.7.6:9999/shoppingCenter) {"msg":"{\"reL\":[{\"stI\":10070,\"na\":\"6钻石\",\"pa\":0.01,\"trI\":\"10008:6\",\"de\":\"6钻石\",\"prI\":4444,\"paW\":1,\"wxP\":1,\"apP\":1,\"alP\":1,\"apCC\":\"\",\"re\":\"\",\"go\":6,\"pr\":0},{\"stI\":10071,\"na\":\"15钻石\",\"pa\":0.01,\"trI\":\"10008:15\",\"de\":\"15钻石\",\"prI\":4444,\"paW\":1,\"wxP\":1,\"apP\":1,\"alP\":1,\"apCC\":\"\",\"re\":\"\",\"go\":15,\"pr\":0},{\"stI\":10072,\"na\":\"50钻石\",\"pa\":0.01,\"trI\":\"10008:50\",\"de\":\"50钻石\",\"prI\":4444,\"paW\":1,\"wxP\":1,\"apP\":1,\"alP\":1,\"apCC\":\"\",\"re\":\"\",\"go\":50,\"pr\":0}],\"snId\":0,\"recUserId\":0}","code":90011}
+
+10:37:36.333 [ INFO]-[           main] c.d.g.g.c.r.RoomFeeConfigHelper : load PyjConfig success!
+10:37:36.509 [ INFO]-[      Thread-21] c.d.g.n.GameServer             : init nioserver port=9998
+10:37:37.281 [ WARN]-[pool-9-thread-3] c.d.g.s.HttpSender             : post(http://192.168.7.6:20001/msg/) {msg={"gameId":1872634,"snId":0,"recUserId":1872634}, code=70997}
+10:37:37.281 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -***************** 已启动的任务 *****************-
+10:37:37.286 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----[jobName]: JobInitializationPlugin_jobInitializer_jobs_xml  [groupName]: JobInitializationPlugin - Thu Mar 29 10:38:35 CST 2018
+10:37:37.287 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----[jobName]: RankCombatGainsJob  [groupName]: DEFAULT - Thu Mar 29 10:38:00 CST 2018
+10:37:37.287 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----[jobName]: ResetPlayerDataJob  [groupName]: DEFAULT - Thu Mar 29 11:00:00 CST 2018
+10:37:37.287 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----[jobName]: ClearPyjUserRecord  [groupName]: DEFAULT - Fri Mar 30 05:00:00 CST 2018
+10:37:37.287 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----############# 服务器 启动成功 port=9998#############-----
+
+
+10:37:37.289 [ WARN]-[pool-9-thread-3] c.d.g.s.HttpSender             : got(http://192.168.7.6:20001/msg/) {"msg":"{\"toC\":\"7c5dd05d-65eb-41ea-b42c-cf387ae7f471\",\"acU\":\"\",\"gameId\":0,\"snId\":0,\"recUserId\":1872634}","code":70998}
+
+10:37:37.291 [ INFO]-[pool-9-thread-4] c.d.g.g.ActivityManager        : gameServiceToken： 7c5dd05d-65eb-41ea-b42c-cf387ae7f471
+10:41:22.575 [ INFO]-[           main] c.d.g.c.SystemConfig           : 
+-****************************************** System Config  ******************************************-
+  --Key: productId                          		Value: 4444
+  --Key: wxPort                             		Value: 40000
+  --Key: gamePort                           		Value: 9998
+  --Key: resPort                            		Value: 30001
+  --Key: webPort                            		Value: 38075
+  --Key: localPort                          		Value: 0
+  --Key: extPort                            		Value: 0
+  --Key: remoteHost                         		Value: NULL
+  --Key: remotePort                         		Value: 0
+  --Key: agentURL                           		Value: NULL
+  --Key: agentLoginURL                      		Value: NULL
+  --Key: shoppingCenterURL                  		Value: http://192.168.7.6:9999/shoppingCenter
+  --Key: serverId                           		Value: server-singlon
+  --Key: serverURL                          		Value: 192.168.7.6
+  --Key: langPath                           		Value: lang/lang_zh.txt
+  --Key: pyjRecordPath                      		Value: ./fileData/pyjrecord/
+  --Key: singlon                            		Value: true
+  --Key: checkAgent                         		Value: false
+  --Key: logLevel                           		Value: ALL
+  --Key: logFile                            		Value: ./logs/dszy.log
+  --Key: logConsoleDisable                  		Value: 0
+  --Key: consoleTest                        		Value: false
+  --Key: encryptMessage                     		Value: false
+  --Key: zookeeperIp                        		Value: 192.168.8.25
+  --Key: activityURL                        		Value: http://192.168.7.6:20001/
+  --Key: activityWebPort                    		Value: 0
+  --Key: workerURL                          		Value: /game/guangdong_region/dsqp/run.sh worker
+  --Key: gameType                           		Value: 10020
+  --Key: base                               		Value: 0
+  --Key: simpleProxy                        		Value: false
+  --Key: appid                              		Value: wxfd0e620467a13b07
+  --Key: userIdLength                       		Value: 8
+  --Key: userIdPrefix                       		Value: 1000000000
+  --Key: customArg                          		Value: NULL
+  --Key: oldClientMap                       		Value: NULL
+  --Key: config                             		Value: NULL
+  --Key: yamlFilePath                       		Value: systemConfig.yml
+  --Key: yamlFilePathRegEx                  		Value: systemConfigRegEx.yml
+  --Key: runEnvironment                     		Value: development
+  --Key: md5val                             		Value: 75DEAD9375474311803CE4876B00727F
+------------------------------------- dataBaseConfig -------------------------------------
+  --Key: address                            		Value: 192.168.7.6
+  --Key: port                               		Value: 3306
+  --Key: userName                           		Value: dbuser_root
+  --Key: dbMaxconn                          		Value: 10
+  --Key: dbFallow                           		Value: 5
+  --Key: charSet                            		Value: utf-8
+  --Key: dbNames_dbName                     		Value: guangdong_region_php_dev
+  --Key: dbNames_logDbName                  		Value: guangdong_region_php_log_dev
+------------------------------------- gameConfig -------------------------------------
+  --Key: testModel                          		Value: true
+  --Key: needZiplog                         		Value: false
+  --Key: ddzSupotPublic                     		Value: false
+  --Key: ddzAwaysGrab                       		Value: false
+  --Key: mjTestCard                         		Value: true
+  --Key: inviteRoomMaxId                    		Value: 9999
+  --Key: gameDesktopClassNameMap_10090      		Value: com.dszy.game.gamelogic.majong.lianjiang.LianJiangFSM
+  --Key: gameDesktopClassNameMap_10172      		Value: com.dszy.game.gamelogic.majong.guangdongjh.GuangDongJhFSM
+  --Key: gameDesktopClassNameMap_10095      		Value: com.dszy.game.gamelogic.majong.zhaoqing.ZhaoQingFSM
+  --Key: gameDesktopClassNameMap_10097      		Value: com.dszy.game.gamelogic.majong.yunfu.YunFuFSM
+  --Key: gameDesktopClassNameMap_10130      		Value: com.dszy.game.gamelogic.majong.gaozhoumaima.GaoZhouMaiMaFSM
+  --Key: gameDesktopClassNameMap_10096      		Value: com.dszy.game.gamelogic.majong.huaiji.HuaiJiFSM
+  --Key: gameDesktopClassNameMap_10118      		Value: com.dszy.game.gamelogic.majong.chaozhou.ChaoZhouFSM
+  --Key: gameDesktopClassNameMap_10217      		Value: com.dszy.game.gamelogic.majong.guangdongbaizhang.GuangDongBaiZhangFSM
+  --Key: gameDesktopClassNameMap_10117      		Value: com.dszy.game.gamelogic.majong.shanwei.ShanWeiFSM
+  --Key: gameDesktopClassNameMap_10218      		Value: com.dszy.game.gamelogic.majong.hongzhong.HongZhongFSM
+  --Key: gameDesktopClassNameMap_10110      		Value: com.dszy.game.gamelogic.majong.zhongshan.ZhongShanGame
+  --Key: gameDesktopClassNameMap_10099      		Value: com.dszy.game.gamelogic.majong.yunfu.YunFuFSM
+  --Key: gameDesktopClassNameMap_10098      		Value: com.dszy.game.gamelogic.majong.yunfu.YunFuFSM
+  --Key: gameDesktopClassNameMap_10296      		Value: com.dszy.game.gamelogic.majong.gdzuopai.GdZuopaiFSM
+  --Key: gameDesktopClassNameMap_10136      		Value: com.dszy.game.gamelogic.majong.shantou.ShanTouFSM
+  --Key: gameDesktopClassNameMap_10213      		Value: com.dszy.game.gamelogic.majong.gdzuopai.GdZuopaiFSM
+  --Key: gameDesktopClassNameMap_10135      		Value: com.dszy.game.gamelogic.majong.meizhou.MeiZhouFSM
+  --Key: gameDesktopClassNameMap_10116      		Value: com.dszy.game.gamelogic.majong.zhuh.ZhuhFSM
+  --Key: gameDesktopClassNameMap_10214      		Value: com.dszy.game.gamelogic.majong.jieyang.JieYangFSM
+  --Key: gameDesktopClassNameMap_20002      		Value: com.dszy.game.gamelogic.ddz2r.DDZDesktop
+  --Key: gameDesktopClassNameMap_20001      		Value: com.dszy.game.gamelogic.ddz.DDZDesktop
+  --Key: gameDesktopClassNameMap_10086      		Value: com.dszy.game.gamelogic.majong.qy.QYFSM
+  --Key: gameDesktopClassNameMap_20009      		Value: com.dszy.game.gamelogic.ddzcommon.DDZCommonDesk
+  --Key: gameDesktopClassNameMap_10107      		Value: com.dszy.game.gamelogic.majong.jiangmen.JiangmenFSM
+  --Key: gameDesktopClassNameMap_10129      		Value: com.dszy.game.gamelogic.majong.maoming.MaomingFSM
+  --Key: gameDesktopClassNameMap_10128      		Value: com.dszy.game.gamelogic.majong.meizhou.MeiZhouFSM
+  --Key: gameDesktopClassNameMap_10106      		Value: com.dszy.game.gamelogic.majong.heyuan.HeYuanFSM
+  --Key: gameDesktopClassNameMap_10109      		Value: com.dszy.game.gamelogic.majong.kaiping.KaipingFSM
+  --Key: gameDesktopClassNameMap_10108      		Value: com.dszy.game.gamelogic.majong.jiangmengangganghu.JiangMenGangGangHuFSM
+  --Key: gameDesktopClassNameMap_10087      		Value: com.dszy.game.gamelogic.majong.Yingd.YingDFSM
+  --Key: gameDesktopClassNameMap_10101      		Value: com.dszy.game.gamelogic.majong.yangjiang.YangjiangFSM
+  --Key: gameDesktopClassNameMap_10089      		Value: com.dszy.game.gamelogic.majong.zhanjiang.ZhanJiangFSM
+  --Key: gameDesktopClassNameMap_10100      		Value: com.dszy.game.gamelogic.majong.yangjiangdf.YangjiangdfFSM
+  --Key: gameDesktopClassNameMap_10103      		Value: com.dszy.game.gamelogic.majong.shaoguannormal.ShaoGuanNormalFSM
+  --Key: gameDesktopClassNameMap_10102      		Value: com.dszy.game.gamelogic.majong.shaoguanzp.ShaoGuanZpFSM
+  --Key: gameDesktopClassNameMap_10105      		Value: com.dszy.game.gamelogic.majong.huizhou.HuiZhouGame
+  --Key: gameDesktopClassNameMap_10126      		Value: com.dszy.game.gamelogic.majong.gaozhou.GaoZhouFSM
+------------------------------------- clubDataBaseConfig -------------------------------------
+  --Key: address                            		Value: 192.168.7.105
+  --Key: port                               		Value: 3306
+  --Key: userName                           		Value: root
+  --Key: dbMaxconn                          		Value: 2
+  --Key: dbFallow                           		Value: 1
+  --Key: charSet                            		Value: utf-8
+  --Key: dbNames_clubDictDbName             		Value: club_dict
+  --Key: dbNames_clubDbName                 		Value: club
+  --Key: dbNames_clubLogDbName              		Value: club_log
+------------------------------------- dictDataBaseConfig -------------------------------------
+  --Key: address                            		Value: 192.168.7.6
+  --Key: port                               		Value: 3306
+  --Key: userName                           		Value: dbuser_root
+  --Key: dbMaxconn                          		Value: 10
+  --Key: dbFallow                           		Value: 5
+  --Key: charSet                            		Value: utf-8
+  --Key: dbNames_mpDbName                   		Value: dsqp_mp
+  --Key: dbNames_dictDbName                 		Value: dsqp_dict
+------------------------------------- resConfig -------------------------------------
+  --Key: imageURL                           		Value: http://192.168.7.6:30001/images/
+  --Key: headImgURL                         		Value: http://192.168.7.6:30001/headimg/
+  --Key: gameZipURL                         		Value: http://192.168.7.6:30001/gameZip/
+  --Key: recordURL                          		Value: http://192.168.7.6:30001/pyjrecord/
+  --Key: mergeAndroidURL                    		Value: NULL
+  --Key: mergeIOSURL                        		Value: NULL
+  --Key: mergeDesc                          		Value: NULL
+------------------------------------- cardControlConfig -------------------------------------
+  --Key: types_sg                           		Value: 2.0
+  --Key: types_dz                           		Value: 1.0
+  --Key: types_sz                           		Value: 1.5
+  --Key: types_kz                           		Value: 1.5
+  --Key: probability_gt4                    		Value: 0.0
+  --Key: probability_lt1.5                  		Value: 30.0
+  --Key: probability_gt6                    		Value: 20.0
+  --Key: probability_gt5                    		Value: 10.0
+  --Key: n                                  		Value: 0
+------------------------------------- logDataBaseConfig -------------------------------------
+  --Key: address                            		Value: 192.168.7.6
+  --Key: port                               		Value: 3306
+  --Key: userName                           		Value: dbuser_root
+  --Key: dbMaxconn                          		Value: 2
+  --Key: dbFallow                           		Value: 1
+  --Key: charSet                            		Value: utf-8
+  --Key: dbNames_logDbName                  		Value: guangdong_region_php_log_dev
+------------------------------------- cacheConfig -------------------------------------
+  --Key: url                                		Value: 127.0.0.1
+  --Key: port                               		Value: 6379
+  --Key: database                           		Value: 1
+  --Key: database2                          		Value: 2
+  --Key: ttl_CashLimitData                  		Value: 1.0
+  --Key: ttl_UUserInfo                      		Value: 1.0
+  --Key: ttl_private_rooms                  		Value: 1.0
+  --Key: ttl_UQuest                         		Value: 1.0
+  --Key: ttl_UUserExt                       		Value: 1.0
+  --Key: ttl_UUserRecord                    		Value: 1.0
+  --Key: ttl_UUserPoint                     		Value: 1.0
+------------------------------------- bullConfig -------------------------------------
+  --Key: roundExp                           		Value: 10
+  --Key: dealerExpEx                        		Value: 10
+  --Key: playerExpEx                        		Value: 5
+  --Key: lossPercentMap_bull2               		Value: 1
+  --Key: lossPercentMap_noBull              		Value: 1
+  --Key: lossPercentMap_bull1               		Value: 1
+  --Key: lossPercentMap_bomb                		Value: 3
+  --Key: lossPercentMap_bullBull            		Value: 3
+  --Key: lossPercentMap_fiveFlowerBull      		Value: 3
+  --Key: lossPercentMap_fiveLittleBull      		Value: 3
+  --Key: lossPercentMap_bull6               		Value: 1
+  --Key: lossPercentMap_bull5               		Value: 1
+  --Key: lossPercentMap_bull4               		Value: 1
+  --Key: lossPercentMap_bull3               		Value: 1
+  --Key: lossPercentMap_bull9               		Value: 2
+  --Key: lossPercentMap_bull8               		Value: 2
+  --Key: lossPercentMap_bull7               		Value: 2
+  --Key: enabledRobot                       		Value: false
+------------------------------------- userConfig -------------------------------------
+  --Key: version                            		Value: 1.0.0
+  --Key: checkVersionList                   		Value: all
+  --Key: checkFlag                          		Value: true
+  --Key: rechargeComfirmSwitch              		Value: false
+  --Key: newBeeCash                         		Value: 0
+  --Key: defaultCity                        		Value: 0
+  --Key: playLostCashLimit                  		Value: 500000
+  --Key: playWinCashLimit                   		Value: 500000
+  --Key: roomLostCashLimit                  		Value: 10000000
+  --Key: roomWinCashLimit                   		Value: 10000000
+  --Key: dayLostCashLimit                   		Value: 10000000
+  --Key: dayWinCashLimit                    		Value: 10000000
+  --Key: cashLimitOpen                      		Value: true
+  --Key: smsTimeout                         		Value: 300
+  --Key: testBilling                        		Value: false
+  --Key: privateRoomDiamond                 		Value: 12
+-***************************************** End System Config  *****************************************-
+
+10:41:22.580 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : start logger ok
+10:41:22.943 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.6:3306/guangdong_region_php_dev?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:41:22.968 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.6:3306/guangdong_region_php_log_dev?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:41:23.043 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.6:3306/dsqp_dict?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:41:23.070 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.105:3306/club?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:41:23.091 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.105:3306/club_dict?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:41:23.111 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.105:3306/club_log?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:41:23.193 [ INFO]-[           main] c.d.g.d.p.DBPoolMgr            : 加载配置连接池:URL:jdbc:mysql://192.168.7.6:3306/dsqp_mp?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull完成！
+10:41:23.199 [ INFO]-[           main] c.d.g.c.StoreService           :  * connect cache 127.0.0.1 db 1 db2 2
+10:41:23.222 [ INFO]-[           main] c.d.g.c.StoreService           :  * connect cache successful
+10:41:23.942 [ WARN]-[pool-9-thread-1] c.d.g.s.HttpSender             : post(http://192.168.7.6:9999/shoppingCenter) {msg={"prI":4444,"paW":1,"snId":0,"recUserId":0}, code=90010}
+10:41:24.083 [ INFO]-[           main] c.d.g.g.c.r.RoomFeeConfigHelper : load PyjConfig success!
+10:41:24.226 [ WARN]-[pool-9-thread-1] c.d.g.s.HttpSender             : got(http://192.168.7.6:9999/shoppingCenter) {"msg":"{\"reL\":[{\"stI\":10070,\"na\":\"6钻石\",\"pa\":0.01,\"trI\":\"10008:6\",\"de\":\"6钻石\",\"prI\":4444,\"paW\":1,\"wxP\":1,\"apP\":1,\"alP\":1,\"apCC\":\"\",\"re\":\"\",\"go\":6,\"pr\":0},{\"stI\":10071,\"na\":\"15钻石\",\"pa\":0.01,\"trI\":\"10008:15\",\"de\":\"15钻石\",\"prI\":4444,\"paW\":1,\"wxP\":1,\"apP\":1,\"alP\":1,\"apCC\":\"\",\"re\":\"\",\"go\":15,\"pr\":0},{\"stI\":10072,\"na\":\"50钻石\",\"pa\":0.01,\"trI\":\"10008:50\",\"de\":\"50钻石\",\"prI\":4444,\"paW\":1,\"wxP\":1,\"apP\":1,\"alP\":1,\"apCC\":\"\",\"re\":\"\",\"go\":50,\"pr\":0}],\"snId\":0,\"recUserId\":0}","code":90011}
+
+10:41:24.321 [ INFO]-[           main] c.d.g.g.c.r.RoomFeeConfigHelper : load PyjConfig success!
+10:41:24.355 [ INFO]-[      Thread-21] c.d.g.n.GameServer             : init nioserver port=9998
+10:41:24.467 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -***************** 已启动的任务 *****************-
+10:41:24.471 [ WARN]-[pool-9-thread-3] c.d.g.s.HttpSender             : post(http://192.168.7.6:20001/msg/) {msg={"gameId":1872861,"snId":0,"recUserId":1872861}, code=70997}
+10:41:24.472 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----[jobName]: JobInitializationPlugin_jobInitializer_jobs_xml  [groupName]: JobInitializationPlugin - Thu Mar 29 10:42:24 CST 2018
+10:41:24.474 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----[jobName]: RankCombatGainsJob  [groupName]: DEFAULT - Thu Mar 29 10:42:00 CST 2018
+10:41:24.474 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----[jobName]: ResetPlayerDataJob  [groupName]: DEFAULT - Thu Mar 29 11:00:00 CST 2018
+10:41:24.474 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----[jobName]: ClearPyjUserRecord  [groupName]: DEFAULT - Fri Mar 30 05:00:00 CST 2018
+10:41:24.474 [ INFO]-[           main] c.d.g.s.l.DSQPTestLauncher     : -----############# 服务器 启动成功 port=9998#############-----
+
+
+10:41:24.479 [ WARN]-[pool-9-thread-3] c.d.g.s.HttpSender             : got(http://192.168.7.6:20001/msg/) {"msg":"{\"toC\":\"0f9f7cd4-b403-425a-afc4-9c88a8158652\",\"acU\":\"\",\"gameId\":0,\"snId\":0,\"recUserId\":1872861}","code":70998}
+
+10:41:24.480 [ INFO]-[pool-9-thread-4] c.d.g.g.ActivityManager        : gameServiceToken： 0f9f7cd4-b403-425a-afc4-9c88a8158652

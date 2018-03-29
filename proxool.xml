@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<something-else-entirely>  
+    <proxool>  
+        <alias>maya208</alias>
+		<driver-url>jdbc:mysql://192.168.2.127:3306/dev_maya?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull</driver-url>
+		<driver-class>com.mysql.jdbc.Driver</driver-class> 
+        <driver-properties>  
+			<property name="user" value="root" />  
+            <property name="password" value="leg58mysql" /> 
+        </driver-properties>   
+        <maximum-connection-count>10</maximum-connection-count>   
+        <minimum-connection-count>1</minimum-connection-count>
+		<maximum-connection-lifetime>300000</maximum-connection-lifetime>
+        <house-keeping-sleep-time>90000</house-keeping-sleep-time>
+        <simultaneous-build-throttle>1</simultaneous-build-throttle>
+        <prototype-count>1</prototype-count>   
+        <test-before-use>true</test-before-use>  
+        <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+    </proxool>  
+</something-else-entirely>  

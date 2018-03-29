@@ -1,0 +1,418 @@
+-------------------------------------------------------------
+--  @file   GameRoomInfoUI_shanweimj.lua
+--  @brief  创建房间规则界面
+--  @author ZCQ
+--  @DateTime:2016-11-07 12:08:58
+--  Version: 1.0.0
+--  Company  SteveSoft LLC.
+--  Copyright  Copyright (c) 2016
+--============================================================
+require("app.DebugHelper")
+
+local currentModuleName = ...
+local SelectRadioScrollView       = import(".SelectRadioScrollView", currentModuleName)
+
+--组名
+local groupName={
+	 [1]="group_1",
+	 [2]="group_2",
+	 [3]="group_3",
+	 [4]="group_4",
+	 [5]="group_5",
+}
+
+	
+local GameRoomInfoUI_shanweimj = class("GameRoomInfoUI_shanweimj", function() 
+    local ret = display.newNode()
+    return ret
+end)
+
+local kColors = 
+{
+	normalColor = cc.c3b(0x2b, 0x4c, 0x01),
+	selectColor = cc.c3b(0xff, 0x00, 0x00),--深色
+	grayColor = cc.c3b(128, 128, 128)--灰色
+}
+
+function GameRoomInfoUI_shanweimj:ctor(...)
+    self.m_data=...;
+   --	self.m_pWidget = ccs.GUIReader:getInstance():widgetFromBinaryFile("games/suiningmj/hall/friendRoomCreate_suinin.csb")
+	--self:addChild(self.m_pWidget)
+	self:onInit();
+end
+
+--点击1马的时候才可以点击，1马算10马和1马正常算。其他马的时候不可点击
+function GameRoomInfoUI_shanweimj:onRadioChang(radioData)
+	Log.i("GameRoomInfoUI_shanweimj:onRadioChang");
+	print("GameRoomInfoUI_shanweimj tag:", radioData.tag)
+	local tag = radioData.tag
+	local radio18Ui = self.m_selectRadio:getRadioUI(18)
+	local radio19Ui = self.m_selectRadio:getRadioUI(19)
+
+    local dropList5 = self.m_selectRadio:getDropData(5);
+    local dropIndex5=dropList5:getSelectedIndex()
+    local radio12Ui = self.m_selectRadio:getRadioUI(12)
+	if dropIndex5 == 2 or dropIndex5 == 3 or dropIndex5 == 4 or dropIndex5 == 5 or dropIndex5 == 6  then
+	  	--todo 可选
+	  	local radio_12btn = ccui.Helper:seekWidgetByName(radio12Ui, "radio_btn")
+		self.m_selectRadio:resetData(radio12Ui,true)
+	  	radio_12btn:setVisible(true)
+	  	local yuan_wei12 = ccui.Helper:seekWidgetByName(radio12Ui, "yuan_wei")
+	  	yuan_wei12:setVisible(false)
+
+	  --	local radio_19btn = ccui.Helper:seekWidgetByName(radio19Ui, "radio_btn")
+	 -- 	self.m_selectRadio:resetData(radio19Ui,false);
+	 -- 	radio_19btn:setVisible(true)
+	 -- 	local yuan_wei19 = ccui.Helper:seekWidgetByName(radio19Ui, "yuan_wei")
+	 -- 	yuan_wei19:setVisible(false)
+
+	elseif dropIndex5 == 1 then
+	  	--todo 不可选
+	  	local radio_12btn = ccui.Helper:seekWidgetByName(radio12Ui, "radio_btn")
+	  	radio_12btn:setVisible(false)
+	  	local text12 = ccui.Helper:seekWidgetByName(radio12Ui, "text")
+	  	text12:setColor(kColors.grayColor)
+
+	--  	local radio_19btn = ccui.Helper:seekWidgetByName(radio19Ui, "radio_btn")
+	--  	radio_19btn:setVisible(false)
+	--  	local text19 = ccui.Helper:seekWidgetByName(radio19Ui, "text")
+	--  	text19:setColor(kColors.grayColor)
+
+	 -- 	local yuan_wei18 = ccui.Helper:seekWidgetByName(radio18Ui, "yuan_wei")
+	 -- 	yuan_wei18:setVisible(true)
+	 -- 	yuan_wei18:setAnchorPoint(yuan_wei18:getAnchorPoint())
+     --   yuan_wei18:setPosition(cc.p(31, 25))
+
+	 -- 	local yuan_wei19 = ccui.Helper:seekWidgetByName(radio19Ui, "yuan_wei")
+	 -- 	yuan_wei19:setVisible(true)
+	 -- 	yuan_wei19:setAnchorPoint(yuan_wei19:getAnchorPoint())
+     --   yuan_wei19:setPosition(cc.p(31, 25))
+
+     --   self.m_selectRadio:resetData(radio18Ui, false)
+      --  self.m_selectRadio:resetData(radio19Ui, false)
+
+	end
+end
+
+function GameRoomInfoUI_shanweimj:setAttachParam()
+  
+ 
+end
+
+function GameRoomInfoUI_shanweimj:onClose()
+
+end
+
+function GameRoomInfoUI_shanweimj:onInit()
+   self.m_setData = {};--给服务器发送选择的玩法数据
+   self:setInitSelect() 
+end
+
+
+	
+--重载点击确定按钮要发给服务器的数据
+function GameRoomInfoUI_shanweimj:getData()
+	--当玩家剩余1张开房卡时，点击“开设房间”进入到选择牌局规则界面，如果选择12局或16局，点击“确定”，弹出提示：房卡不足，请联系群主或以下微信号xxxxxxxx。
+	--测试当前所消耗物品数量是否够开房间
+	--##    roFT  int  房费类型（填入物品ID，可以是金豆和元宝，开房卡）
+	--##    roF  int  房费数量
+	
+	self:roomMoneyFactory();
+	
+	-- Log.i("本局游戏要消耗房卡", self.m_setData.RoFS)
+	-- if self.m_setData.RoFS ~= nil then
+	-- 	if(kUserInfo:getPrivateRoomDiamond() < tonumber(self.m_setData.RoFS) and kFriendRoomInfo:isFreeActivities()==false) then
+	-- 		local data = {}
+	-- 		data.type = 1;
+	-- 		data.content =kFriendRoomInfo:getRoomBaseInfo().roomFeeTip; --kServerInfo:getRechargeInfo();
+	-- 		UIManager.getInstance():pushWnd(CommonDialog,data); 
+	-- 		return nil
+	-- 	end
+	-- end
+	self.m_setData.gaI = kFriendRoomInfo:getGameID();
+	--
+	self:juShuFactory();
+	self:peopleNumberFactory();
+	
+	-- 玩法工厂
+    self:wanFaFactory()
+	-- LoadingView.getInstance():show("正在创建房间,请稍后...");
+	return self.m_setData;		
+end
+
+function GameRoomInfoUI_shanweimj:setInitSelect()
+    local tmpData = kFriendRoomInfo:getRoomBaseInfo()
+
+    --局数:
+    self.m_jushu_itemList = Util.analyzeString_2(tmpData.roundSum);
+    self.m_fangfei_itemList = Util.analyzeString_2(tmpData.RoomFeeSum);
+    if(not self.m_jushu_itemList) then
+        return;
+    end
+
+	--
+    local textDatas = {}
+    for i=1,3 do
+        local text = string.format("%s局(%s房卡)", self.m_jushu_itemList[i], self.m_fangfei_itemList[i])
+        table.insert(textDatas, text)
+    end
+	
+	--约定第4个为玩法消费配置
+	local text = string.format("进园子(%s点:%s房卡)",self.m_jushu_itemList[4], self.m_fangfei_itemList[4]);
+	table.insert(textDatas, text)
+	--[[
+	-- @brief  参数说明
+	-- @param 
+	   tag=0;--标记
+	   name=""; --名称
+	   netData="";--要发给服务器的数据
+	   title="";--显示标题
+	   group=0;--所在组编号
+	   mutexNameList={};--互斥名称
+	   mutualDepositNameList={};--互存名称
+	   isCanSelect=0;--1可选，0不可选，
+	   state=0;--，--1选中，0不选中。
+	   callObject=nil;--回调对象
+	   callBackFun=nil;--选中当前回调方法
+	   disableNameList=nil--禁用动作列表
+	   enableNameList=nil,--激活动作列表
+	   defaultNameList=nil,--默认激活列表
+	   uiType=1;--1单选框，2复选框 3下拉框
+	   offX=0;
+	   offY=0;
+	   {imageLine=true},加线
+	   isReturnLine 换行
+	-- @return void
+	--]]
+	self.m_dropData={}
+	for i=1,10 do
+	   local tmpData={}
+	   tmpData.title = i .. "底";
+	   tmpData.data = i;
+	   table.insert(self.m_dropData,tmpData);
+	end
+
+    self.m_dropData2={}
+    local tmpData2={}
+    tmpData2={{title="正副花", data=1},{title="统一1番", data=2},{title="统一2番", data=3},}
+    self.m_dropData2=tmpData2;
+
+     self.m_dropData3={}
+    local tmpData3={}
+    tmpData3={{title="正副字", data=1},{title="统一1番", data=2},{title="统一2番", data=3},}
+    self.m_dropData3=tmpData3;
+
+     self.m_dropData6={}
+    local tmpData6={}
+    tmpData6={{title="14番", data=1},{title="10番无马", data=2},{title="16番无马", data=3},}
+    self.m_dropData6=tmpData6;
+
+     self.m_dropData4={}
+    local tmpData4={}
+    tmpData4={{title="无马", data=1},{title="1马", data=2},{title="2马", data=3},}
+    self.m_dropData4=tmpData4;
+
+     self.m_dropData5={}
+    local tmpData5={}
+    tmpData5={{title="无马", data=1},{title="2马", data=2},{title="4马", data=3},{title="6马", data=4},{title="8马", data=5},{title="10马", data=6},}
+    self.m_dropData5=tmpData5;
+	
+	self.m_dataParam={
+	 {lineTitle="人数:"},
+	 {tag=1,name="siren1",netData="1",title="4人",group=groupName[2],state=1,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"2","3"},offX=0, offY = 0},
+     {tag=2,name="siren2",netData="2",title="3人",group=groupName[2],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"1","3"},offX=0, offY = 0},
+     {tag=3,name="siren3",netData="3",title="2人",group=groupName[2],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"1","2"},offX=0, offY = 0},
+	 {imageLine=true},
+	 {lineTitle="局数:"},
+	 {tag=4,name="junshun1",netData="1",title=textDatas[1],group=groupName[3],state=1,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"5","6"},offX=0, offY = 0},
+	 {tag=5,name="junshun2",netData="2",title=textDatas[2],group=groupName[3],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"4","6"},offX=0, offY = 0},
+	 {tag=6,name="junshun3",netData="3",title=textDatas[3],group=groupName[3],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"4","5"},offX=0, offY = 0},
+	 {imageLine=true},
+	 {lineTitle="底金:"},
+	 {tag=7,name="di",netData=self.m_dropData,title="1底",group=groupName[5],state=1,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,uiType=3,offX=0, offY = 0},
+     {lineTitle="花:"},
+	 {tag=8,name="hua",netData=self.m_dropData2,title="正副花",group=groupName[6],state=1,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,uiType=3,offX=0, offY = 0},
+     {lineTitle="字:"},
+	 {tag=9,name="zi",netData=self.m_dropData3,title="正副字",group=groupName[7],state=1,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,uiType=3,offX=0, offY = 0},
+	 {imageLine=true},
+     
+     {lineTitle="买马:"},
+     {tag=10,name="maima",netData=self.m_dropData4,title="1底",group=groupName[9],state=1,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,uiType=3,offX=0, offY = 0},
+     {lineTitle="奖马:"},
+	 {tag=11,name="jiangma",netData=self.m_dropData5,title="正副花",group=groupName[10],state=1,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,uiType=3,offX=0, offY = 0},
+     {tag=12,name="haidi",netData="magengang",title="马跟杠",group=groupName[1],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={},uiType = 2,offX=0, offY = 0},
+	 {imageLine=true},
+
+	 {lineTitle="胡牌:"},	 -- uiType = 2 多选
+	 {tag=13,name="haidi",netData="haidilaoyue2fan",title="海底捞月2番",group=groupName[1],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={},uiType = 2,offX=0, offY = 0},
+	 {tag=14,name="gangkaifanbei",netData="g2fan",title="杠上开花2番",group=groupName[1],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={},uiType = 2,offX=50, offY = 0},
+     {tag=15,name="bushefengding",netData="nofengdin",title="不设封顶",group=groupName[1],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={},uiType = 2,offX=50, offY = 0},
+	 -- {imageLine=true},
+	 {isReturnLine=true},
+	 {tag=16,name="qingyise",netData="qyszmjia2fan",title="清一色自摸胡+2番",group=groupName[1],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={},uiType = 2,offX=0, offY = 0},
+	 {tag=17,name="yipaoduoxiang",netData="ypdxnobsj",title="一炮多响番数不包三家",group=groupName[1],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={},uiType = 2,offX=50, offY = 0},
+	 {imageLine=true},
+
+	 {lineTitle="七花:"},
+     {tag=18,name="qihua",netData=self.m_dropData6,title="1底",group=groupName[8],state=1,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,uiType=3,offX=0, offY = 0},
+     {imageLine=true},
+     {lineTitle="玩法:"},
+      {tag=19,name="shisanyaokeqianganganghu",netData="shisanyaokeqiangganghu",title="十三幺可抢杠胡",group=groupName[1],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={},uiType = 2,offX=0, offY = 0},
+	 {tag=20,name="qiangganghu",netData="qiangganghuwuma",title="抢杠胡无码",group=groupName[1],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={},uiType = 2,offX=50, offY = 0},
+     {tag=21,name="wuhuasuanyihua",netData="wuhuasuanyifa",title="无花算一花",group=groupName[1],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={},uiType = 2,offX=50, offY = 0},
+     
+	-- {tag=10,name="fanbei",netData="fanbei",title="翻倍",group=groupName[1],state=1,
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"11","12"},offX = 0, offY = 0},
+	-- {tag=11,name="zhengchangsuan",netData="zhengchangsuan",title="正常算",group=groupName[1],state=0,
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"10","12"},offX = 0, offY = 0},
+	 -- {isReturnLine=true},
+	-- {tag=12,name="40bei",netData="40bei",title="40倍",group=groupName[1],state=0,
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"10","11"},offX = 0, offY = 0},
+	-- {imageLine=true},
+
+	-- {lineTitle="翻马:"},
+	 --{tag=13,name="10ma",netData="10ma",title="10马",group = groupName[1],state=1,child = false,
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList = {"14","15","16","17"},offX = 0, offY = 0},
+	-- {tag=14,name="8ma",netData="8ma",title="8马",group = groupName[1],state=0,child = false,
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList = {"13","15","16","17"},offX = -130, offY = 0},
+	-- {tag=15,name="6ma",netData="6ma",title="6马",group = groupName[1],state=0,child = false,
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList = {"13","14","16","17"},offX = -273, offY = 0},
+	-- {tag=16,name="4ma",netData="4ma",title="4马",group = groupName[1],state=0,child = false,
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList = {"15","13","14","17"},offX = -415, offY = 0},
+	 --{tag=17,name="1ma",netData="1ma",title="1马(最后一张胡牌)",group = groupName[1],state=0,child = true,
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList = {"13","16","14","15"},offX = -557, offY = 0},
+
+	 -- {imageLine=true},
+	-- {isReturnLine=true},
+	-- {tag=18,name="1masuan10ma",netData="1masuan10ma",title="1马算10马",group = groupName[1],state = 0, 
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList = {"19"},offX = 0, offY = 0},	 
+	-- {tag=19,name="1mazhengchangsuan",netData="1mazhengchangsuan",title="1马正常算",group = groupName[1],state = 0,
+	-- isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList = {"18"},offX = 50, offY = 0},
+      {imageLine=true},
+     
+	 {lineTitle="房费:"},
+	 {tag=22,name="fufen1",netData="1",title="房主付费",group=groupName[4],state=1,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"23","24"},offX=0, offY = 0},
+	 {tag=23,name="fufen2",netData="2",title="大赢家付费",group=groupName[4],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"22","24"},offX=0, offY = 0},
+	 {tag=24,name="fufen3",netData="3",title="AA付费",group=groupName[4],state=0,
+	 isCanSelect=1,callObject=self,callBackFun=self.onRadioChang,mutexNameList={"22","23"},offX=0, offY = 0},
+	};
+
+    local uiHeight=self.m_data.height+25-25
+	self.m_selectRadio= SelectRadioScrollView.new();
+	self.m_selectRadio:setData(self,self.m_dataParam,uiHeight);
+	print("...........dkkk..............." .. self.m_data.height);
+	uiHeight = uiHeight < self.m_data.height and self.m_data.height or uiHeight
+
+    self:setContentSize(cc.size(self.m_data.width, uiHeight))
+    Log.i(".............uiHeight.........................",uiHeight)
+    Log.i("..................dkkk.............................",self.m_data.height)
+
+  --  self:onRadioChang(self.m_dataParam[25])--第一次调用，让10马默认选择，1马算10马不可选
+end
+
+--局数:
+function GameRoomInfoUI_shanweimj:juShuFactory()
+   --如果没有选择局数
+   self.m_setData.roS = self.m_jushu_itemList[4]
+   self.m_setData.RoFS = self.m_fangfei_itemList[4]
+	  
+   local retData = self.m_selectRadio:getGroupData(groupName[3])
+   for i=1 ,#retData do
+      local v = retData[i];
+	  local index = tonumber(v.netData)
+	  self.m_setData.roS = self.m_jushu_itemList[index];
+      self.m_setData.RoFS = self.m_fangfei_itemList[index];
+	  Log.i("局数"..self.m_setData.roS .. "/" .. self.m_setData.RoFS);
+   end
+end
+
+--人数
+function GameRoomInfoUI_shanweimj:peopleNumberFactory()
+   local retData = self.m_selectRadio:getGroupData(groupName[2])
+   for i=1 ,#retData do
+      local v = retData[i];
+	  self.m_setData.plS = tonumber(v.netData)
+	  Log.i("人数",self.m_setData.plS);
+   end
+end
+
+--玩法
+function GameRoomInfoUI_shanweimj:wanFaFactory()
+   local str = ""
+   local retData = self.m_selectRadio:getGroupData(groupName[1])
+   for i=1 ,#retData do
+      local v = retData[i];
+	  str = str == "" and v.netData or string.format("%s|%s", str, v.netData)
+   end
+    self.m_setData.wa = str
+	Log.i("玩法",str);
+	
+	--取下拉框数据
+	local dropList = self.m_selectRadio:getDropData(1);
+    local dropIndex=dropList:getSelectedIndex()
+	self.m_setData.wa = self.m_setData.wa .."|" .. self.m_dropData[dropIndex].data;
+  --  dump(dropIndex)
+
+    local dropList2 = self.m_selectRadio:getDropData(2);
+    local dropIndex2=dropList2:getSelectedIndex()
+	self.m_setData.wa = self.m_setData.wa .."|" .. self.m_dropData2[dropIndex2].data;
+   -- dump(dropIndex)
+    local dropList3 = self.m_selectRadio:getDropData(3);
+    local dropIndex3=dropList3:getSelectedIndex()
+	self.m_setData.wa = self.m_setData.wa .."|" .. self.m_dropData3[dropIndex3].data;
+  --  dump(dropIndex)
+
+    local dropList4 = self.m_selectRadio:getDropData(4);
+    local dropIndex4=dropList4:getSelectedIndex()
+	self.m_setData.wa = self.m_setData.wa .."|" .. self.m_dropData4[dropIndex4].data;
+  --  dump(dropIndex)
+
+     local dropList5 = self.m_selectRadio:getDropData(5);
+    local dropIndex5=dropList5:getSelectedIndex()
+	self.m_setData.wa = self.m_setData.wa .."|" .. self.m_dropData5[dropIndex5].data;
+  --  dump(dropIndex)
+
+     local dropList6 = self.m_selectRadio:getDropData(6);
+    local dropIndex6=dropList6:getSelectedIndex()
+	self.m_setData.wa = self.m_setData.wa .."|" .. self.m_dropData6[dropIndex6].data;
+   -- dump(dropIndex)
+
+
+    --error("1111111")
+   
+end
+
+--房费
+function GameRoomInfoUI_shanweimj:roomMoneyFactory()
+   local retData = self.m_selectRadio:getGroupData(groupName[4])
+   for i=1 ,#retData do
+      local v = retData[i];
+	  self.m_setData.RoJST = tonumber(v.netData)
+	  Log.i("房费",self.m_setData.RoJST);
+   end
+end
+
+return GameRoomInfoUI_shanweimj;

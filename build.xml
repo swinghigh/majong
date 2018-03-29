@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="dsqp" basedir="." default="zip-jar">
+    <property name="src.dir" value="srcs"/>
+	<property name="lib.dir" value="libs"/>
+    <property name="classes.dir" value="classes"/>
+	<property name="target.dir" value="target"/>
+	<tstamp>
+		    <format property="now" pattern="yyyyMMddhhmmssSSS" locale="us"/>
+	</tstamp>
+	<path id="dsqp-lib">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+		<pathelement path="${java.class.path}/"/>
+	</path>
+    <target name="clean" description="Delete all generated files">
+        <delete failonerror="false" includeEmptyDirs="true">
+        	<fileset dir="${src.dir}"/>
+        	<fileset dir="${lib.dir}"/>
+            <fileset dir="${classes.dir}"/>
+        </delete>
+    	<mkdir dir="${src.dir}"/>
+    	<mkdir dir="${lib.dir}"/>
+    	<mkdir dir="${classes.dir}"/>
+    	<mkdir dir="${target.dir}"/>
+    </target>
+	
+	<target name="copyBins">
+		<copy todir="${src.dir}">
+			<fileset dir="../game-majong/bin" />
+			<fileset dir="../server-base/bin" />
+			<fileset dir="../server-core/bin" />
+			<fileset dir="../server-dao/bin" />
+			<fileset dir="../server-ddzai/bin" />
+			<fileset dir="../server-message/bin" />
+			<fileset dir="../server-mjai/bin" />
+			<fileset dir="../server-modules/bin" />
+			<fileset dir="../server-resourcemgr/bin" />
+			<fileset dir="../service-billing/bin" />
+			<fileset dir="../service-game/bin" />
+			<fileset dir="../service-hall/bin" />
+			<fileset dir="../service-room/bin" />
+			<fileset dir="../service-router/bin" />
+			<fileset dir="../service-user/bin" />
+			<fileset dir="../service-web/bin" />
+			<fileset dir="./bin" />
+		</copy>
+	</target>
+	
+	<target name="copySrcs">
+		<copy todir="${src.dir}">
+			<fileset dir="../game-majong/src" />
+			<fileset dir="../server-base/src" />
+			<fileset dir="../server-core/src" />
+			<fileset dir="../server-dao/src" />
+			<fileset dir="../server-ddzai/src" />
+			<fileset dir="../server-message/src" />
+			<fileset dir="../server-mjai/src" />
+			<fileset dir="../server-modules/src" />
+			<fileset dir="../server-resourcemgr/src" />
+			<fileset dir="../service-billing/src" />
+			<fileset dir="../service-game/src" />
+			<fileset dir="../service-hall/src" />
+			<fileset dir="../service-room/src" />
+			<fileset dir="../service-router/src" />
+			<fileset dir="../service-user/src" />
+			<fileset dir="../service-web/src" />
+			<fileset dir="./src" />
+		</copy>
+		<copy todir="${lib.dir}">
+			<fileset dir="../server-base/lib"/>
+			<fileset dir="../server-message/lib"/>
+			<fileset dir="../service-web/lib"/>
+			<fileset dir="../service-billing/WebRoot/WEB-INF/lib"/>
+		</copy>
+	</target>
+	
+    <target name="compile" description="Compiles the Task">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" 
+        	destdir="${classes.dir}"
+        	target="1.8" 
+        	optimize="true" 
+        	encoding="utf-8"
+        >
+        	<classpath refid="dsqp-lib"/>
+        </javac>
+    </target>
+
+	<target name="jar" description="JARs the Task"  depends="clean,copySrcs,compile">
+        <jar destfile="${target.dir}/${ant.project.name}.jar" basedir="${classes.dir}"/>
+    </target>
+	
+	<target name="zip-jar" depends="clean,copySrcs,copyBins">
+		 <jar destfile="${target.dir}/${ant.project.name}_server.jar" basedir="${src.dir}"/>		 
+	</target>
+</project>

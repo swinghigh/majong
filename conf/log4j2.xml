@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://logging.apache.org/log4j/2.x/manual/configuration.html#AutomaticReconfiguration -->
+<!--设置log4j2的自身log级别为debug,每隔10秒刷新一次 -->
+<configuration status="info" monitorInterval="10">
+
+	<!-- ***************start propertys ****************-->
+	 <properties>
+	 	<!-- 单个文件最大100M -->
+		<property name="log.policy.size">100 MB</property>
+		<!-- 平台包日志输出目录 -->
+		<property name="log.dir.core">logs/core/</property>
+		<!-- 平台包房间事件输出目录 -->
+		<property name="log.dir.room">logs/room/</property>
+		<!-- 地方游戏日志输出目录 -->
+		<property name="log.dir.game">logs/game</property>
+		<!-- 日志输出格式 -->
+		<!-- %d{HH:mm:ss.SSS} [%5p]-[%15.15t] %-30.40c{1.} : %m%n%ex -->
+		<!-- %date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n -->
+		<property name="log.layout"> %d{HH:mm:ss.SSS} [%5p]-[%15.15t] %-30.40c{1.} : %m%n%ex </property>
+		<!-- 日志归档策略 -->
+		<property name="log.pattern">$${date:MM-dd}/out-%d{dd}-%i.log.gz</property>
+		<property name="log.error.pattern">$${date:MM-dd}/error-%d{dd}-%i.log.gz</property>
+	</properties>
+	<!-- ***************end propertys ****************-->
+	<appenders>
+		<console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${log.layout}" />
+		</console>
+		<!-- ++++++++平台包日志 end+++++++ -->
+		<RollingFile name="core" fileName="${log.dir.core}/out.log" filePattern="${log.dir.core}/${log.pattern}">
+			<PatternLayout pattern="${log.layout}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="${log.policy.size}" />
+			</Policies>
+		</RollingFile>
+
+		<RollingFile name="coreError" fileName="${log.dir.core}/error.log" filePattern="${log.dir.core}/${log.error.pattern}">
+			<ThresholdFilter level="ERROR" />
+			<PatternLayout pattern="${log.layout}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="${log.policy.size}" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="roomLog" fileName="${log.dir.room}/info.log" filePattern="${log.dir.room}/${log.pattern}">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} %m%n%ex"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="${log.policy.size}" />
+			</Policies>
+		</RollingFile>
+		<!-- ++++++++平台包日志 end+++++++ -->
+
+		<!-- ================================================================ -->
+		<!-- ==========================地方游戏配置 ============================= -->
+		<!-- ================================================================ -->
+	</appenders>
+	<loggers>
+		<!-- additivity 表示是否重复输出  -->
+		<Logger name="com.dszy.game" level="DEBUG" />
+		<Logger name="com.dszy.game.service.room.RoomLog" level="DEBUG">
+			<AppenderRef ref="roomLog" />
+		</Logger>
+		<root level="INFO">
+			<appender-ref ref="Console"/>
+			<appender-ref ref="core" />
+			<appender-ref ref="coreError" />
+		</root>
+	</loggers>
+</configuration>

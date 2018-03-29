@@ -1,0 +1,97 @@
+package com.dszy.game.gamelogic.majong.shanwei;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.dszy.game.gamelogic.majong.gameinfo.BaseFlowGameInfo;
+import com.dszy.game.gamelogic.majong.utils.Hu.HuStrategy;
+
+public class ShanWeiGameInfo extends BaseFlowGameInfo {
+		
+//	private int maiMaCount;//创建房间选择的买马数
+//	private int jiangMaCount;//创建房间选择的奖马数
+//	
+//	public int getMaiMaCount() {
+//		return maiMaCount;
+//	}
+//	public void setMaiMaCount(int maiMaCount) {
+//		this.maiMaCount = maiMaCount;
+//	}
+//	public int getJiangMaCount() {
+//		return jiangMaCount;
+//	}
+//	public void setJiangMaCount(int jiangMaCount) {
+//		this.jiangMaCount = jiangMaCount;
+//	}
+	
+	private List<Byte> maCards=new ArrayList<>();//系统的马牌 2马就是2张
+//	private List<Byte> ziCards=new ArrayList<>();
+//	private List<Byte> huaCards=new ArrayList<>();
+	
+	private boolean isfengding ;//是否设封顶
+	private boolean isbsj;//抢杠胡是否包三家
+	private int gangBase;//杠钱的底数
+	
+	private HuStrategy[] huStrategys;//信阳胡牌算法
+	
+	public HuStrategy[] getHuStrategys() {
+		return huStrategys;
+	}
+	
+	public void setHuStrategys(HuStrategy[] huStrategys) {
+		this.huStrategys = huStrategys;
+	}
+
+	public boolean isIsfending() {
+		return isfengding;
+	}
+	
+	public boolean isIsfengding() {
+		return isfengding;
+	}
+
+	public void setIsfengding(boolean isfengding) {
+		this.isfengding = isfengding;
+	}
+
+	public int getGangBase() {
+		return gangBase;
+	}
+
+	public void setGangBase(int gangBase) {
+		this.gangBase = gangBase;
+	}
+
+	public boolean isIsbsj() {
+		return isbsj;
+	}
+
+	public void setIsbsj(boolean isbsj) {
+		this.isbsj = isbsj;
+	}
+
+	public List<Byte> getMaCards() {
+		return maCards;
+	}
+
+	public void setMaCards(List<Byte> maCards) {
+		this.maCards = maCards;
+	}
+
+//	public List<Byte> getZiCards() {
+//		return ziCards;
+//	}
+//
+//	public void setZiCards(List<Byte> ziCards) {
+//		this.ziCards = ziCards;
+//	}
+
+//	public List<Byte> getHuaCards() {
+//		return huaCards;
+//	}
+//
+//	public void setHuaCards(List<Byte> huaCards) {
+//		this.huaCards = huaCards;
+//	}
+	
+}

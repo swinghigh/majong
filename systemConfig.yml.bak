@@ -1,0 +1,198 @@
+development:
+   productId: 4444
+   gamePort: 9998
+   resPort: 30001
+   webPort: 38075
+   wxPort: 40000
+   activityURL: http://192.168.7.6:20001/
+   shoppingCenterURL: http://192.168.7.6:9999/shoppingCenter
+   serverId: server-singlon
+   serverURL: 192.168.7.6
+   zookeeperIp: 192.168.8.25
+   langPath: lang/lang_zh.txt
+   checkAgent: false
+   logLevel: ALL
+   logFile: ./logs/dszy.log
+   logConsoleDisable: 0
+   simpleProxy: false
+   singlon: true
+   workerURL: /game/guangdong_region/dsqp/run.sh worker
+   pyjRecordPath: ./fileData/pyjrecord/
+   gameType: 10020
+   appid: wxfd0e620467a13b07
+   userIdLength: 8
+   userIdPrefix: 1000000000
+   
+   bullConfig: 
+      lossPercentMap: 
+         bull2: 1
+         noBull: 1
+         bull1: 1
+         bomb: 3
+         bullBull: 3
+         fiveFlowerBull: 3
+         fiveLittleBull: 3
+         bull6: 1
+         bull5: 1
+         bull4: 1
+         bull3: 1
+         bull9: 2
+         bull8: 2
+         bull7: 2
+   cacheConfig: 
+      port: 6379
+      url: 127.0.0.1
+      database: 1
+      database2: 2
+      passwd: ""
+      ttl: 
+        UUserPoint: 1
+        UUserRecord: 1
+        UUserExt: 1
+        CashLimitData: 1
+        UQuest: 1
+        UUserInfo: 1
+        private_rooms: 1
+   dbConfigMap: 
+      clubDataBaseConfig: 
+         address: 192.168.7.105
+         port: 3306
+         userName: root
+         passwd: steve201718
+         charSet: utf-8
+         dbFallow: 1
+         dbMaxconn: 2
+         dbNames: 
+            clubDictDbName: club_dict
+            clubDbName: club
+            clubLogDbName: club_log
+      dictDataBaseConfig: 
+         address: 192.168.7.6
+         port: 3306
+         passwd: HY43Lmq16cjU0OTM1NWJjZTNl
+         userName: dbuser_root
+         charSet: utf-8
+         dbFallow: 5
+         dbMaxconn: 10
+         dbNames: 
+            mpDbName: dsqp_mp
+            dictDbName: dsqp_dict
+      dataBaseConfig:
+         address: 192.168.7.6
+         port: 3306
+         userName: dbuser_root
+         passwd: HY43Lmq16cjU0OTM1NWJjZTNl
+         charSet: utf-8
+         dbFallow: 5
+         dbMaxconn: 10
+         dbNames: 
+            dbName: guangdong_region_php_dev
+            logDbName: guangdong_region_php_log_dev
+      logDataBaseConfig:
+         # address: IP
+         address: "192.168.7.6"
+         # port: 端口
+         port: "3306"
+         # userName: 用户
+         userName: "dbuser_root"
+         # passwd: 密码
+         passwd: "HY43Lmq16cjU0OTM1NWJjZTNl"
+         # charSet: 字符集编码
+         charSet: "utf-8"
+         # dbFallow: 分区数 ，默认值2，最小1，推荐3-4，视应用而定
+         dbFallow: "1"
+         # dbMaxconn: 最大连接数
+         dbMaxconn: "2"
+         # dbNames: 数据库名称
+         dbNames: 
+            # dbName: 游戏库
+            logDbName: "guangdong_region_php_log_dev"      
+   gameConfig: 
+      ddzSupotPublic: false
+      ddzAwaysGrab: false
+      inviteRoomMaxId: 9999
+      mjTestCard: true
+      testModel: true
+      gameDesktopClassNameMap: 
+         '10107': com.dszy.game.gamelogic.majong.jiangmen.JiangmenFSM
+         '10108': com.dszy.game.gamelogic.majong.jiangmengangganghu.JiangMenGangGangHuFSM
+         '10109': com.dszy.game.gamelogic.majong.kaiping.KaipingFSM
+         '10102': com.dszy.game.gamelogic.majong.shaoguanzp.ShaoGuanZpFSM
+         '10103': com.dszy.game.gamelogic.majong.shaoguannormal.ShaoGuanNormalFSM
+         '10172': com.dszy.game.gamelogic.majong.guangdongjh.GuangDongJhFSM
+         '10129': com.dszy.game.gamelogic.majong.maoming.MaomingFSM
+         '10126': com.dszy.game.gamelogic.majong.gaozhou.GaoZhouFSM
+         '10118': com.dszy.game.gamelogic.majong.chaozhou.ChaoZhouFSM
+         '10089': com.dszy.game.gamelogic.majong.zhanjiang.ZhanJiangFSM
+         '10090': com.dszy.game.gamelogic.majong.lianjiang.LianJiangFSM
+         '10095': com.dszy.game.gamelogic.majong.zhaoqing.ZhaoQingFSM
+         '10096': com.dszy.game.gamelogic.majong.huaiji.HuaiJiFSM
+         '10128': com.dszy.game.gamelogic.majong.meizhou.MeiZhouFSM
+         '10135': com.dszy.game.gamelogic.majong.meizhou.MeiZhouFSM
+         '10136': com.dszy.game.gamelogic.majong.shantou.ShanTouFSM
+         '10218': com.dszy.game.gamelogic.majong.hongzhong.HongZhongFSM
+         '10110': com.dszy.game.gamelogic.majong.zhongshan.ZhongShanGame
+         '10116': com.dszy.game.gamelogic.majong.zhuh.ZhuhFSM
+         '10101': com.dszy.game.gamelogic.majong.yangjiang.YangjiangFSM
+         '10100': com.dszy.game.gamelogic.majong.yangjiangdf.YangjiangdfFSM
+         '10086': com.dszy.game.gamelogic.majong.qy.QYFSM
+         '10087': com.dszy.game.gamelogic.majong.Yingd.YingDFSM
+         '10097': com.dszy.game.gamelogic.majong.yunfu.YunFuFSM
+         '10098': com.dszy.game.gamelogic.majong.yunfu.YunFuFSM
+         '10099': com.dszy.game.gamelogic.majong.yunfu.YunFuFSM
+         '10105': com.dszy.game.gamelogic.majong.huizhou.HuiZhouGame
+         '10106': com.dszy.game.gamelogic.majong.heyuan.HeYuanFSM
+         '10117': com.dszy.game.gamelogic.majong.shanwei.ShanWeiFSM
+         '10130': com.dszy.game.gamelogic.majong.gaozhoumaima.GaoZhouMaiMaFSM
+         '10217': com.dsqp.game.majong.guangdongbaizhang.common.GuangDongBaiZhangFSM
+         '10213': com.dszy.game.gamelogic.majong.gdzuopai.GdZuopaiFSM
+         '10214': com.dszy.game.gamelogic.majong.jieyang.JieYangFSM
+         '10296': com.dszy.game.gamelogic.majong.gdzuopai.GdZuopaiFSM
+         '20002': com.dszy.game.gamelogic.ddz2r.DDZDesktop
+         '20001': com.dszy.game.gamelogic.ddz.DDZDesktop
+         '20009': com.dszy.game.gamelogic.ddzcommon.DDZCommonDesk
+   resConfig: 
+      gameZipURL: http://192.168.7.6:30001/gameZip/
+      headImgURL: http://192.168.7.6:30001/headimg/
+      imageURL: http://192.168.7.6:30001/images/
+      recordURL: http://192.168.7.6:30001/pyjrecord/
+      mergeAndroidURL :
+      mergeIOSURL :
+      mergeDesc :
+   userConfig: 
+      dayLostCashLimit: 10000000
+      dayWinCashLimit: 10000000
+      playLostCashLimit: 500000
+      playWinCashLimit: 500000
+      roomLostCashLimit: 10000000
+      roomWinCashLimit: 10000000
+      cashLimitOpen: true
+      checkFlag: true
+      newBeeCash: 0
+      privateRoomDiamond: 12
+      version: 1.0.0
+      checkVersionList : all
+      rechargeComfirmSwitch: false
+      defaultCity: 0
+      smsTimeout: 300
+   # cardControlConfig: 发牌控制
+   # probability: 分数大于（gt）或小于（lt）对应值时的换牌概率，此处用百分比数值
+   # n: 最多洗牌次数
+   # types: 类型和对应的分数 dz: 对子分 kz: 刻子分 sg: 三个分 sz: 顺子分
+   cardControlConfig: 
+           probability: 
+             gt6: 20
+             gt5: 10
+             gt4: 0
+             lt1.5: 30
+        
+           n: 0
+   
+           types: 
+             dz: 1
+             kz: 1.5
+             sg: 2
+             sz: 1.5
+  
+   
+          
